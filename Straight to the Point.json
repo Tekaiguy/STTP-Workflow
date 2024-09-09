@@ -47,7 +47,7 @@
           "shape": 3
         }
       ],
-      "title": "          1. Load Model",
+      "title": "          1. Checkpoint",
       "properties": {
         "Node name for S&R": "CheckpointLoaderSimple"
       },
@@ -868,7 +868,7 @@
           "shape": 3
         }
       ],
-      "title": "1. Load Model",
+      "title": "1. Checkpoint",
       "properties": {
         "Node name for S&R": "CheckpointLoaderSimple"
       },
@@ -2917,10 +2917,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9330147604194685,
+      "scale": 0.9229599817706425,
       "offset": [
-        323.4607301057131,
-        597.8361717044954
+        345.5338859361817,
+        562.0805165513774
       ]
     },
     "groupNodes": {}
