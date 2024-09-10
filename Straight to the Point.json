@@ -155,7 +155,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 27,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -904,7 +904,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 26,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -1063,7 +1063,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 29,
+      "order": 27,
       "mode": 0,
       "inputs": [
         {
@@ -1273,47 +1273,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 134,
-      "type": "PrimitiveNode",
-      "pos": [
-        940,
-        610
-      ],
-      "size": {
-        "0": 327.6000061035156,
-        "1": 82
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 12,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            273,
-            274
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "stop_at_clip_layer"
-          }
-        }
-      ],
-      "title": "                    <--  CLIP Skip  -->",
-      "properties": {
-        "Run widget replace on values": false
-      },
-      "widgets_values": [
-        -1,
-        "fixed"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 146,
       "type": "Note",
       "pos": [
@@ -1327,7 +1286,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "title": "How to Generate",
       "properties": {
@@ -1353,7 +1312,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "title": "How to Condition",
       "properties": {
@@ -1379,7 +1338,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "title": "How to use groups",
       "properties": {
@@ -1405,7 +1364,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "outputs": [
         {
@@ -1445,7 +1404,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "outputs": [
         {
@@ -1485,7 +1444,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 18,
+      "order": 17,
       "mode": 0,
       "outputs": [
         {
@@ -1798,7 +1757,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "outputs": [
         {
@@ -1842,7 +1801,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "outputs": [
         {
@@ -1887,7 +1846,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 28,
+      "order": 26,
       "mode": 0,
       "inputs": [
         {
@@ -1942,7 +1901,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 21,
+      "order": 20,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2302,7 +2261,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 22,
+      "order": 21,
       "mode": 0,
       "outputs": [
         {
@@ -2393,7 +2352,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 23,
+      "order": 22,
       "mode": 0,
       "title": "How to Face Swap",
       "properties": {
@@ -2419,7 +2378,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 24,
+      "order": 23,
       "mode": 0,
       "title": "How to Upscale",
       "properties": {
@@ -2445,7 +2404,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 25,
+      "order": 24,
       "mode": 0,
       "title": "How to Redraw",
       "properties": {
@@ -2453,6 +2412,47 @@
       },
       "widgets_values": [
         "-2. Don't change positive/negative prompts and CLIP skip\n-1. Freeze the seed from the previous step (last queued seed)\n0. Load a local image (if using only redraw)\n1. Load a checkpoint\n2. Rescale the latent from previous step to be slightly bigger\n3. Load any Loras\n4. Choose KSampler settings\n5. Preview/Save the redraw\n6. Send the redraw to face swap or upscale"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 134,
+      "type": "PrimitiveNode",
+      "pos": [
+        940,
+        610
+      ],
+      "size": {
+        "0": 327.6000061035156,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 25,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            273,
+            274
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "stop_at_clip_layer"
+          }
+        }
+      ],
+      "title": "                    <--  CLIP Skip  -->",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        -1,
+        "fixed"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -2917,10 +2917,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9330147604194666,
+      "scale": 0.9330147604194685,
       "offset": [
-        327.1817547263649,
-        535.3594195627277
+        324.9467131414364,
+        603.433160424407
       ]
     },
     "groupNodes": {}

@@ -9,7 +9,7 @@
 
 - Text to image
 - Image to image
-- Face Swap
+- Face swap
 - Upscale
 - No overlapping nodes
 - No wasted space
