@@ -2,7 +2,6 @@
 
 # ![Logo](images/STTP%20Logo.png)
 ### A compact and efficient toggle-based ComfyUI workflow by Luckytime
-<br>
 </div>
 
 # Features
@@ -33,7 +32,7 @@ Any combination of the 4 groups may be used. If the last three groups are used i
 
 # Toggles
 
-There are 3 'Group Toggle' nodes throughout the workflow so they are always within reach. Switching off the groups lets you pause after each step and decide whether an image is worth refining. If you want to send an image to the next group, the seed from any previous KSampler should be frozen by clicking 'Last Queued Seed'.
+There are 3 'Group Toggle' nodes included in the workflow so they are always within reach. Switching off the groups lets you pause after each step and decide whether an image is worth refining. If you want to send an image to the next group, the seed from any previous KSampler should be frozen by clicking 'Last Queued Seed'.
 
 # Groups
 
@@ -56,13 +55,11 @@ This group lets you create a new image from an empty latent (AKA text2img).
 5. Preview/Save the generation
 6. Send the generation to Redraw, Face Swap, or Upscale
 
-**Note: While the prompts and CLIP are shared between the 'Generate' and 'Redraw' groups, the Loras are not.**
+**Note: The prompts and CLIP are shared between the 'Generate' and 'Redraw' groups, but the Loras are not.**
 
 ## Redraw
 
-This group lets you create variations using an image as a starting point (AKA img2img) (AKA Hires Fix). It takes the latent from 'Generate' and upscales, adds noise, and redraws with a second KSampler.
-
-**Note: The larger the upscale, the more noise is needed due to the increase in pixels.**
+This group lets you create variations using an image as a starting point (AKA img2img) (AKA Hires Fix). It takes the latent from 'Generate' and upscales, denoises, and redraws with a second KSampler.
 
 <div align="center">
 
@@ -79,7 +76,7 @@ This group lets you create variations using an image as a starting point (AKA im
 5. Preview/Save the redraw
 6. Send the redraw to face swap or upscale
 
-**Note: While the prompts and CLIP are shared between the 'Generate' and 'Redraw' groups, the Loras are not.**
+**Note: The prompts and CLIP are shared between the 'Generate' and 'Redraw' groups, but the Loras are not.**
 
 ## Face Swap
 
