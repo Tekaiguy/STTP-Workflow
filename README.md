@@ -49,7 +49,7 @@ This group lets you create a new image from an empty latent (AKA text2img).
 
 0. Write postive/negative prompts and choose CLIP skip
 1. Load a checkpoint
-2. Choose dimensions for an empty latent image
+2. Choose size for an empty latent image
 3. Load any Loras
 4. Choose KSampler settings
 5. Preview/Save the generation
@@ -59,7 +59,7 @@ This group lets you create a new image from an empty latent (AKA text2img).
 
 ## Redraw
 
-This group lets you create variations using an image as a starting point (AKA img2img) (AKA Hires Fix). It takes the latent from 'Generate' and upscales, denoises, and redraws with a second KSampler.
+This group lets you create variations using an image as a starting point (AKA img2img) (AKA Hires Fix). It takes the decoded image from 'Generate' and upscales, re-encodes, and redraws it with a second KSampler.
 
 <div align="center">
 
@@ -70,7 +70,7 @@ This group lets you create variations using an image as a starting point (AKA im
 
 0. Load a local image (if using only redraw)
 1. Load a checkpoint
-2. Rescale the latent from previous step to be slightly bigger
+2. Rescale the image from the previous step
 3. Load any Loras
 4. Choose KSampler settings
 5. Preview/Save the redraw
