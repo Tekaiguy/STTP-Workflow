@@ -1,6 +1,6 @@
 {
-  "last_node_id": 152,
-  "last_link_id": 279,
+  "last_node_id": 156,
+  "last_link_id": 290,
   "nodes": [
     {
       "id": 117,
@@ -84,7 +84,7 @@
           "shape": 3
         }
       ],
-      "title": "2. Empty Latent Size",
+      "title": "2. Empty Latent",
       "properties": {
         "Node name for S&R": "EmptyLatentImage"
       },
@@ -155,7 +155,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 29,
+      "order": 28,
       "mode": 0,
       "inputs": [
         {
@@ -208,7 +208,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 34,
+      "order": 33,
       "mode": 0,
       "inputs": [
         {
@@ -261,7 +261,7 @@
         "collapsed": true,
         "pinned": true
       },
-      "order": 35,
+      "order": 34,
       "mode": 0,
       "inputs": [
         {
@@ -296,54 +296,6 @@
       "widgets_values": [
         "bag, coat, jacket, blazer, legs"
       ],
-      "color": "#223",
-      "bgcolor": "#335"
-    },
-    {
-      "id": 55,
-      "type": "VAEDecode",
-      "pos": [
-        50,
-        690
-      ],
-      "size": {
-        "0": 180,
-        "1": 50
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 37,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 125
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 234
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            127,
-            190,
-            219
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
       "color": "#223",
       "bgcolor": "#335"
     },
@@ -509,7 +461,7 @@
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 169
+          "link": 286
         },
         {
           "name": "optional_vae",
@@ -570,7 +522,7 @@
         "Node name for S&R": "KSampler (Efficient)"
       },
       "widgets_values": [
-        943778238978499,
+        384314969137506,
         null,
         30,
         4,
@@ -624,8 +576,8 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            223,
-            233
+            233,
+            289
           ],
           "slot_index": 2,
           "shape": 3
@@ -636,7 +588,7 @@
         "Node name for S&R": "CheckpointLoaderSimple"
       },
       "widgets_values": [
-        "Realvis* V40_v40Bakedvae.safetensors"
+        "RealVis* V4 - SDXL.safetensors"
       ],
       "color": "#2a363b",
       "bgcolor": "#3f5159"
@@ -655,7 +607,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 36,
+      "order": 35,
       "mode": 0,
       "inputs": [
         {
@@ -713,8 +665,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            125,
-            209
+            125
           ],
           "slot_index": 3,
           "shape": 3
@@ -842,259 +793,6 @@
       "bgcolor": "#653"
     },
     {
-      "id": 60,
-      "type": "VAEDecode",
-      "pos": [
-        2070,
-        720
-      ],
-      "size": {
-        "0": 140,
-        "1": 46
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 42,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 135
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 233
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            191,
-            214,
-            220
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEDecode"
-      },
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 132,
-      "type": "CLIPSetLastLayer",
-      "pos": [
-        1290,
-        720
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 28,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 262
-        },
-        {
-          "name": "stop_at_clip_layer",
-          "type": "INT",
-          "link": 273,
-          "widget": {
-            "name": "stop_at_clip_layer"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CLIP",
-          "type": "CLIP",
-          "links": [
-            261
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "CLIP Skip",
-      "properties": {
-        "Node name for S&R": "CLIPSetLastLayer"
-      },
-      "widgets_values": [
-        -1
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 130,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1410,
-        720
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 32,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 259
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 276,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            263
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Positive",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "mid shot of a 30 year old girl standing in a busy street near a bus stop holding an expensive dslr camera, contemporary, face"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 131,
-      "type": "CLIPTextEncode",
-      "pos": [
-        1520,
-        720
-      ],
-      "size": {
-        "0": 210,
-        "1": 54
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 33,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "clip",
-          "type": "CLIP",
-          "link": 260
-        },
-        {
-          "name": "text",
-          "type": "STRING",
-          "link": 279,
-          "widget": {
-            "name": "text"
-          }
-        }
-      ],
-      "outputs": [
-        {
-          "name": "CONDITIONING",
-          "type": "CONDITIONING",
-          "links": [
-            264
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "Negative",
-      "properties": {
-        "Node name for S&R": "CLIPTextEncode"
-      },
-      "widgets_values": [
-        "bag, coat, jacket, blazer, legs"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 107,
-      "type": "VAEEncode",
-      "pos": [
-        1630,
-        720
-      ],
-      "size": {
-        "0": 140,
-        "1": 46
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 27,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "pixels",
-          "type": "IMAGE",
-          "link": 200
-        },
-        {
-          "name": "vae",
-          "type": "VAE",
-          "link": 223
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            210
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "VAEEncode"
-      },
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
       "id": 127,
       "type": "Power Lora Loader (rgthree)",
       "pos": {
@@ -1116,7 +814,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 31,
+      "order": 30,
       "mode": 0,
       "inputs": [
         {
@@ -1184,7 +882,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 39,
+      "order": 37,
       "mode": 0,
       "inputs": [
         {
@@ -1273,32 +971,6 @@
       "bgcolor": "#000"
     },
     {
-      "id": 146,
-      "type": "Note",
-      "pos": [
-        290,
-        830
-      ],
-      "size": {
-        "0": 360,
-        "1": 120
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 12,
-      "mode": 0,
-      "title": "How to Generate",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "0. Write postive/negative prompts and choose CLIP skip\n1. Load a checkpoint\n2. Choose dimensions for an empty latent image\n3. Load any Loras\n4. Choose KSampler settings\n5. Preview/Save the generation\n6. Send the generation to Redraw, Face Swap, or Upscale"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
       "id": 152,
       "type": "Note",
       "pos": [
@@ -1312,7 +984,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 13,
+      "order": 12,
       "mode": 0,
       "title": "How to Condition",
       "properties": {
@@ -1338,7 +1010,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 14,
+      "order": 13,
       "mode": 0,
       "title": "How to use groups",
       "properties": {
@@ -1364,7 +1036,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 15,
+      "order": 14,
       "mode": 0,
       "outputs": [
         {
@@ -1404,7 +1076,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 16,
+      "order": 15,
       "mode": 0,
       "outputs": [
         {
@@ -1444,7 +1116,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 17,
+      "order": 16,
       "mode": 0,
       "outputs": [
         {
@@ -1462,7 +1134,7 @@
         "Node name for S&R": "UpscaleModelLoader"
       },
       "widgets_values": [
-        "4x_NMKD-Siax_200k.pth"
+        "4x_Valar_v1.pth"
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -1668,81 +1340,6 @@
       "bgcolor": "#353"
     },
     {
-      "id": 105,
-      "type": "Any Switch (rgthree)",
-      "pos": {
-        "0": 1970,
-        "1": 720,
-        "2": 0,
-        "3": 0,
-        "4": 0,
-        "5": 0,
-        "6": 0,
-        "7": 0,
-        "8": 0,
-        "9": 0
-      },
-      "size": {
-        "0": 140,
-        "1": 106
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": false
-      },
-      "order": 38,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "any_01",
-          "type": "LATENT",
-          "link": 209,
-          "dir": 3
-        },
-        {
-          "name": "any_02",
-          "type": "LATENT",
-          "link": 210,
-          "dir": 3
-        },
-        {
-          "name": "any_03",
-          "type": "LATENT",
-          "link": null,
-          "dir": 3
-        },
-        {
-          "name": "any_04",
-          "type": "LATENT",
-          "link": null,
-          "dir": 3
-        },
-        {
-          "name": "any_05",
-          "type": "LATENT",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "*",
-          "type": "LATENT",
-          "links": [
-            206
-          ],
-          "slot_index": 0,
-          "shape": 3,
-          "dir": 4,
-          "label": "LATENT"
-        }
-      ],
-      "title": "Switch",
-      "properties": {},
-      "widgets_values": [],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
       "id": 88,
       "type": "LoadImage",
       "pos": [
@@ -1757,7 +1354,7 @@
         "collapsed": false,
         "pinned": true
       },
-      "order": 18,
+      "order": 17,
       "mode": 0,
       "outputs": [
         {
@@ -1801,7 +1398,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 19,
+      "order": 18,
       "mode": 0,
       "outputs": [
         {
@@ -1866,14 +1463,14 @@
           "shape": 3
         }
       ],
-      "title": "0. Rescale",
+      "title": "0. Rescale Image",
       "properties": {
         "Node name for S&R": "ImageScale"
       },
       "widgets_values": [
-        "bilinear",
+        "bicubic",
         0,
-        1152,
+        0,
         "disabled"
       ],
       "color": "#233",
@@ -1901,7 +1498,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 20,
+      "order": 19,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -2133,6 +1730,450 @@
       "bgcolor": "#355"
     },
     {
+      "id": 150,
+      "type": "Note",
+      "pos": [
+        2670,
+        840
+      ],
+      "size": {
+        "0": 390,
+        "1": 110
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 20,
+      "mode": 0,
+      "title": "How to Face Swap",
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "-1. Don't change settings from previous steps\n0. Load and rescale a local image (if using only face swap)\n1. Load a face image\n2. Preview old image\n3. Preview/Save the face swap\n4. Send the face swap to upscale"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 134,
+      "type": "PrimitiveNode",
+      "pos": [
+        940,
+        610
+      ],
+      "size": {
+        "0": 327.6000061035156,
+        "1": 82
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 21,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            273,
+            274
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "stop_at_clip_layer"
+          }
+        }
+      ],
+      "title": "                    <--  CLIP Skip  -->",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        -1,
+        "fixed"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 132,
+      "type": "CLIPSetLastLayer",
+      "pos": [
+        1330,
+        720
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 262
+        },
+        {
+          "name": "stop_at_clip_layer",
+          "type": "INT",
+          "link": 273,
+          "widget": {
+            "name": "stop_at_clip_layer"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            261
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "CLIP Skip",
+      "properties": {
+        "Node name for S&R": "CLIPSetLastLayer"
+      },
+      "widgets_values": [
+        -1
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 130,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1450,
+        720
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 31,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 259
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 276,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            263
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Positive",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "mid shot of a 30 year old girl standing in a busy street near a bus stop holding an expensive dslr camera, contemporary, face"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 131,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1560,
+        720
+      ],
+      "size": {
+        "0": 210,
+        "1": 54
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 32,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 260
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 279,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            264
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "Negative",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "bag, coat, jacket, blazer, legs"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 55,
+      "type": "VAEDecode",
+      "pos": [
+        50,
+        690
+      ],
+      "size": {
+        "0": 180,
+        "1": 50
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 36,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 125
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 234
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            127,
+            190,
+            219,
+            290
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 105,
+      "type": "Any Switch (rgthree)",
+      "pos": {
+        "0": 1670,
+        "1": 720,
+        "2": 0,
+        "3": 0,
+        "4": 0,
+        "5": 0,
+        "6": 0,
+        "7": 0,
+        "8": 0,
+        "9": 0
+      },
+      "size": {
+        "0": 140,
+        "1": 106
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 38,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "any_01",
+          "type": "IMAGE",
+          "link": 290,
+          "dir": 3
+        },
+        {
+          "name": "any_02",
+          "type": "IMAGE",
+          "link": 284,
+          "dir": 3
+        },
+        {
+          "name": "any_03",
+          "type": "IMAGE",
+          "link": null,
+          "dir": 3
+        },
+        {
+          "name": "any_04",
+          "type": "IMAGE",
+          "link": null,
+          "dir": 3
+        },
+        {
+          "name": "any_05",
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "*",
+          "type": "IMAGE",
+          "links": [
+            287
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "dir": 4,
+          "label": "IMAGE"
+        }
+      ],
+      "title": "Switch",
+      "properties": {},
+      "widgets_values": [],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 154,
+      "type": "VAEEncode",
+      "pos": [
+        1940,
+        720
+      ],
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 40,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 288
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 289
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            286
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 60,
+      "type": "VAEDecode",
+      "pos": [
+        2070,
+        720
+      ],
+      "size": {
+        "0": 140,
+        "1": 46
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 42,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 135
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 233
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            191,
+            214,
+            220
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
       "id": 133,
       "type": "Power Lora Loader (rgthree)",
       "pos": {
@@ -2154,7 +2195,7 @@
       "flags": {
         "pinned": true
       },
-      "order": 30,
+      "order": 29,
       "mode": 0,
       "inputs": [
         {
@@ -2217,6 +2258,98 @@
       "bgcolor": "#3f5159"
     },
     {
+      "id": 104,
+      "type": "LoadImage",
+      "pos": [
+        1990,
+        210
+      ],
+      "size": {
+        "0": 210,
+        "1": 320
+      },
+      "flags": {
+        "collapsed": false,
+        "pinned": true
+      },
+      "order": 22,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            284
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "title": "0. Load Image",
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "27029012.jpeg",
+        "image"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
+      "id": 155,
+      "type": "ImageScale",
+      "pos": [
+        1990,
+        560
+      ],
+      "size": {
+        "0": 210,
+        "1": 130
+      },
+      "flags": {
+        "pinned": true
+      },
+      "order": 39,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 287
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            288
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "title": "2. Rescale Image",
+      "properties": {
+        "Node name for S&R": "ImageScale"
+      },
+      "widgets_values": [
+        "bicubic",
+        0,
+        1344,
+        "disabled"
+      ],
+      "color": "#2a363b",
+      "bgcolor": "#3f5159"
+    },
+    {
       "id": 35,
       "type": "PreviewImage",
       "pos": [
@@ -2245,124 +2378,6 @@
       },
       "color": "#2a363b",
       "bgcolor": "#3f5159"
-    },
-    {
-      "id": 104,
-      "type": "LoadImage",
-      "pos": [
-        1990,
-        210
-      ],
-      "size": {
-        "0": 210,
-        "1": 320
-      },
-      "flags": {
-        "collapsed": false,
-        "pinned": true
-      },
-      "order": 21,
-      "mode": 0,
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            200
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "links": null,
-          "shape": 3
-        }
-      ],
-      "title": "0. Load Image",
-      "properties": {
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "27029012.jpeg",
-        "image"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 72,
-      "type": "LatentUpscale",
-      "pos": [
-        1990,
-        560
-      ],
-      "size": {
-        "0": 210,
-        "1": 130
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 40,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "samples",
-          "type": "LATENT",
-          "link": 206
-        }
-      ],
-      "outputs": [
-        {
-          "name": "LATENT",
-          "type": "LATENT",
-          "links": [
-            169
-          ],
-          "slot_index": 0,
-          "shape": 3
-        }
-      ],
-      "title": "2. Rescale Latent",
-      "properties": {
-        "Node name for S&R": "LatentUpscale"
-      },
-      "widgets_values": [
-        "bicubic",
-        0,
-        1200,
-        "disabled"
-      ],
-      "color": "#2a363b",
-      "bgcolor": "#3f5159"
-    },
-    {
-      "id": 150,
-      "type": "Note",
-      "pos": [
-        2670,
-        840
-      ],
-      "size": {
-        "0": 390,
-        "1": 110
-      },
-      "flags": {
-        "pinned": true
-      },
-      "order": 22,
-      "mode": 0,
-      "title": "How to Face Swap",
-      "properties": {
-        "text": ""
-      },
-      "widgets_values": [
-        "-1. Don't change settings from previous steps\n0. Load and rescale a local image (if using only face swap)\n1. Load a face image\n2. Preview old image\n3. Preview/Save the face swap\n4. Send the face swap to upscale"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
     },
     {
       "id": 151,
@@ -2411,48 +2426,33 @@
         "text": ""
       },
       "widgets_values": [
-        "-2. Don't change positive/negative prompts and CLIP skip\n-1. Freeze the seed from the previous step (last queued seed)\n0. Load a local image (if using only redraw)\n1. Load a checkpoint\n2. Rescale the latent from previous step to be slightly bigger\n3. Load any Loras\n4. Choose KSampler settings\n5. Preview/Save the redraw\n6. Send the redraw to face swap or upscale"
+        "-2. Don't change positive/negative prompts and CLIP skip\n-1. Freeze the seed from the previous step (last queued seed)\n0. Load a local image (if using only redraw)\n1. Load a checkpoint\n2. Rescale the image from the previous step\n3. Load any Loras\n4. Choose KSampler settings\n5. Preview/Save the redraw\n6. Send the redraw to face swap or upscale"
       ],
       "color": "#432",
       "bgcolor": "#653"
     },
     {
-      "id": 134,
-      "type": "PrimitiveNode",
+      "id": 146,
+      "type": "Note",
       "pos": [
-        940,
-        610
+        290,
+        830
       ],
       "size": {
-        "0": 327.6000061035156,
-        "1": 82
+        "0": 360,
+        "1": 120
       },
       "flags": {
         "pinned": true
       },
       "order": 25,
       "mode": 0,
-      "outputs": [
-        {
-          "name": "INT",
-          "type": "INT",
-          "links": [
-            273,
-            274
-          ],
-          "slot_index": 0,
-          "widget": {
-            "name": "stop_at_clip_layer"
-          }
-        }
-      ],
-      "title": "                    <--  CLIP Skip  -->",
+      "title": "How to Generate",
       "properties": {
-        "Run widget replace on values": false
+        "text": ""
       },
       "widgets_values": [
-        -1,
-        "fixed"
+        "0. Write postive/negative prompts and choose CLIP skip\n1. Load a checkpoint\n2. Choose size for an empty latent image\n3. Load any Loras\n4. Choose KSampler settings\n5. Preview/Save the generation\n6. Send the generation to Redraw, Face Swap, or Upscale"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -2506,14 +2506,6 @@
       68,
       0,
       "IMAGE"
-    ],
-    [
-      169,
-      72,
-      0,
-      58,
-      3,
-      "LATENT"
     ],
     [
       177,
@@ -2572,38 +2564,6 @@
       "IMAGE"
     ],
     [
-      200,
-      104,
-      0,
-      107,
-      0,
-      "IMAGE"
-    ],
-    [
-      206,
-      105,
-      0,
-      72,
-      0,
-      "LATENT"
-    ],
-    [
-      209,
-      54,
-      3,
-      105,
-      0,
-      "LATENT"
-    ],
-    [
-      210,
-      107,
-      0,
-      105,
-      1,
-      "LATENT"
-    ],
-    [
       214,
       60,
       0,
@@ -2658,14 +2618,6 @@
       92,
       0,
       "IMAGE"
-    ],
-    [
-      223,
-      59,
-      2,
-      107,
-      1,
-      "VAE"
     ],
     [
       233,
@@ -2866,6 +2818,54 @@
       131,
       1,
       "STRING"
+    ],
+    [
+      284,
+      104,
+      0,
+      105,
+      1,
+      "IMAGE"
+    ],
+    [
+      286,
+      154,
+      0,
+      58,
+      3,
+      "LATENT"
+    ],
+    [
+      287,
+      105,
+      0,
+      155,
+      0,
+      "IMAGE"
+    ],
+    [
+      288,
+      155,
+      0,
+      154,
+      0,
+      "IMAGE"
+    ],
+    [
+      289,
+      59,
+      2,
+      154,
+      1,
+      "VAE"
+    ],
+    [
+      290,
+      55,
+      0,
+      105,
+      0,
+      "IMAGE"
     ]
   ],
   "groups": [
@@ -2917,10 +2917,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9330147604194685,
+      "scale": 0.9330147604194686,
       "offset": [
-        324.9467131414364,
-        603.433160424407
+        329.4956529711066,
+        537.7015103431788
       ]
     },
     "groupNodes": {}
