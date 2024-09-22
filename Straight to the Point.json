@@ -1597,79 +1597,6 @@
       "bgcolor": "#355"
     },
     {
-      "id": 86,
-      "type": "ReActorFaceSwap",
-      "pos": [
-        2340,
-        690
-      ],
-      "size": {
-        "0": 310,
-        "1": 340
-      },
-      "flags": {
-        "collapsed": true,
-        "pinned": true
-      },
-      "order": 45,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input_image",
-          "type": "IMAGE",
-          "link": 177
-        },
-        {
-          "name": "source_image",
-          "type": "IMAGE",
-          "link": 179
-        },
-        {
-          "name": "face_model",
-          "type": "FACE_MODEL",
-          "link": null
-        }
-      ],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "links": [
-            221,
-            222
-          ],
-          "slot_index": 0,
-          "shape": 3
-        },
-        {
-          "name": "FACE_MODEL",
-          "type": "FACE_MODEL",
-          "links": null,
-          "slot_index": 1,
-          "shape": 3
-        }
-      ],
-      "title": "Swap",
-      "properties": {
-        "Node name for S&R": "ReActorFaceSwap"
-      },
-      "widgets_values": [
-        true,
-        "inswapper_128.onnx",
-        "YOLOv5l",
-        "codeformer-v0.1.0.pth",
-        1,
-        1,
-        "no",
-        "no",
-        "0",
-        "0",
-        0
-      ],
-      "color": "#233",
-      "bgcolor": "#355"
-    },
-    {
       "id": 91,
       "type": "PreviewImage",
       "pos": [
@@ -2456,6 +2383,79 @@
       ],
       "color": "#432",
       "bgcolor": "#653"
+    },
+    {
+      "id": 86,
+      "type": "ReActorFaceSwap",
+      "pos": [
+        2340,
+        690
+      ],
+      "size": {
+        "0": 310,
+        "1": 340
+      },
+      "flags": {
+        "collapsed": true,
+        "pinned": true
+      },
+      "order": 45,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "input_image",
+          "type": "IMAGE",
+          "link": 177
+        },
+        {
+          "name": "source_image",
+          "type": "IMAGE",
+          "link": 179
+        },
+        {
+          "name": "face_model",
+          "type": "FACE_MODEL",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            221,
+            222
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "FACE_MODEL",
+          "type": "FACE_MODEL",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3
+        }
+      ],
+      "title": "Swap",
+      "properties": {
+        "Node name for S&R": "ReActorFaceSwap"
+      },
+      "widgets_values": [
+        true,
+        "inswapper_128.onnx",
+        "YOLOv5l",
+        "codeformer-v0.1.0.pth",
+        1,
+        1,
+        "no",
+        "no",
+        "0",
+        "0,1,2,3,4,5,6,7,8,9",
+        0
+      ],
+      "color": "#233",
+      "bgcolor": "#355"
     }
   ],
   "links": [
@@ -2917,10 +2917,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.9330147604194686,
+      "scale": 0.9229599817706438,
       "offset": [
-        329.4956529711066,
-        537.7015103431788
+        349.49205886435874,
+        481.4674083694982
       ]
     },
     "groupNodes": {}
