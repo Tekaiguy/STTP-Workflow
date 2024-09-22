@@ -80,7 +80,7 @@ This group lets you create variations using an image as a starting point (AKA im
 
 ## Face Swap
 
-This group lets you replace the face in an image with a face from another image. It will only replace the leftmost face it detects. When uploading your own image, you can rescale the image to ensure the face swap is effective.
+This group lets you replace the face in an image with a face from another image. It will replace face indexes 0-9 by default. When uploading your own image, you can rescale the image to ensure the face swap is effective.
 
 <div align="center">
 
