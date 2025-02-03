@@ -119,3 +119,16 @@ This group lets you upscale an image using an upscale model, rescale the image d
 
 # Shortcuts
 The 1-4 number keys are shortcuts for useful camera views. You can adjust the bookmark nodes to suit your display.
+
+# Changelog
+
+### Version 1
+- Added Generate, Redraw, Face Swap, and Upscale groups
+
+### Version 2
+- Added ControlNet group
+- Added ControlNet toggle for Generate and Redraw groups
+- Separated CLIP skip for Generate and Redraw groups
+- Added primitives to allow changing face indexes
+- Rearranged and renumbered nodes
+- Switched to main ReActor repo
