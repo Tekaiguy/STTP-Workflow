@@ -243,7 +243,7 @@ These are basic workflows which demonstrate a unique function used in the main w
 
 ### Loop
 
-Requires Impact Pack. This worflow sends the output image to the beginning, allowing you to re-use it as the input. Choose an existing image in the receiver to get started and toggle the boolean to choose whether to send the image or not.
+Requires Impact Pack. This workflow sends the output image to the beginning, allowing you to re-use it as the input. Choose an existing image in the receiver to get started and toggle the boolean to choose whether to send the image or not.
 
 <div align="center">
 
