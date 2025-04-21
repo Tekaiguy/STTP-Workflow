@@ -4,7 +4,7 @@
 ### All-in-one, compact, recursive, segmented, toggle-based ComfyUI workflow by Luckytime
 </div>
 
-This workflow is capable of controlnet, image-prompt adapter, text-to-image, image-to-image, background removal, background compositing, outpainting, inpainting, face swap, face detailer, model upscale, sd ultimate upscale, vram management, and infinite looping. It is currently only capable of using checkpoint models.
+This workflow is capable of controlnet, image-prompt adapter, text-to-image, image-to-image, background removal, background compositing, outpainting, inpainting, face swap, face detailer, model upscale, ultimate sd upscale, vram management, and infinite looping. It is currently only capable of using checkpoint models.
 
 **Video Demo:** https://youtube.com/watch?v=BluWKOunjPI<br>
 **CivitAI Repo:** https://civitai.com/models/812560/straight-to-the-point<br>
@@ -168,7 +168,7 @@ This group lets you swap or redraw faces. If used alone, it uses the loaded imag
 ![Upscale](images/STTP%20-%20Upscale.png)
 </div>
 
-This group lets you upscale an image with an upscale model or SD Ultimate Upscale (tiled upscaling). If used alone, it uses the loaded image in step 0. The 'Refresh' toggle helps overcome a known bug caused by mute conflicts. Ultimate upscale splits the image into multiple tiles, upscales them independently, then stitches them back together (if the denoise is too high (above ~0.3) the tile seams will be too obvious). Saving can be toggled off for quality assurance.
+This group lets you upscale an image with an upscale model or Ultimate SD Upscale (tiled upscaling). If used alone, it uses the loaded image in step 0. The 'Refresh' toggle helps overcome a known bug caused by mute conflicts. Ultimate SD Upscale splits the image into multiple tiles, upscales them independently, then stitches them back together (if the denoise is too high (above ~0.3) the tile seams will be too obvious). Saving can be toggled off for quality assurance.
 
 0️⃣ Load an image<br>
 1️⃣ Load a checkpoint, choose image size, and choose CLIP layer skip<br>
@@ -243,7 +243,7 @@ These are basic workflows which demonstrate a unique function used in the main w
 
 ### Loop
 
-Requires Impact Pack. This worflow sends the output image to the beginning, allowing you to re-use it as the input. Choose an existing image in the receiver to get started and toggle the boolean to choose whether to send the image or not.
+Requires Impact Pack. This workflow sends the output image to the beginning, allowing you to re-use it as the input. Choose an existing image in the receiver to get started and toggle the boolean to choose whether to send the image or not.
 
 <div align="center">
 
@@ -289,7 +289,7 @@ Requires Custom Scripts, Impact Pack, and rgthree's nodes. This workflow allows 
 - Added Inpaint group
 - Added loop capability
 - Added face detailer to Face group
-- Added sd ultimate upscale to Upscale group
+- Added ultimate sd upscale to Upscale group
 - Grouped certain nodes together to save space
 - Organized nodes and used emojis for clarity
 - Added links to resources and revamped help nodes
