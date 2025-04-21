@@ -6,25 +6,25 @@
 
 This workflow is capable of controlnet, image-prompt adapter, text-to-image, image-to-image, background removal, background compositing, outpainting, inpainting, face swap, face detailer, model upscale, sd ultimate upscale, vram management, and infinite looping. It is currently only capable of using checkpoint models.
 
-**Video Demo:** youtube.com/watch?v=BluWKOunjPI<br>
-**CivitAI Repo:** civitai.com/models/812560/straight-to-the-point<br>
+**Video Demo:** https://youtube.com/watch?v=BluWKOunjPI<br>
+**CivitAI Repo:** https://civitai.com/models/812560/straight-to-the-point<br>
 
 # Dependencies
 
 Being an all-in-one, there are many dependencies, but I tried my absolute best to use native nodes whenever possible, and only utilized popular/trusted custom nodes for the rest.
 
-🔗 github.com/comfyanonymous/ComfyUI ➡️ ComfyUI<br>
-🔗 github.com/rgthree/rgthree-comfy ➡️ rgthree<br>
-🔗 github.com/ltdrdata/ComfyUI-Impact-Pack ➡️ Impact Pack<br>
-🔗 github.com/jags111/efficiency-nodes-comfyui ➡️ Efficiency Nodes<br>
-🔗 github.com/pythongosssss/ComfyUI-Custom-Scripts ➡️ Custom Scripts<br>
-🔗 github.com/Fannovel16/comfyui_controlnet_aux ➡️ ControlNet Auxiliary Preprocessors<br>
-🔗 github.com/cubiq/ComfyUI_IPAdapter_plus ➡️ IPAdapter Plus<br>
-🔗 github.com/john-mnz/ComfyUI-Inspyrenet-Rembg ➡️ Inspyrenet Rembg<br>
-🔗 github.com/lquesada/ComfyUI-Inpaint-CropAndStitch ➡️ Inpaint Crop & Stitch<br>
-🔗 github.com/Gourieff/ComfyUI-ReActor ➡️ ReActor<br>
-🔗 github.com/ltdrdata/ComfyUI-Impact-Subpack ➡️ Impact Subpack<br>
-🔗 github.com/ssitu/ComfyUI_UltimateSDUpscale ➡️ Ultimate SD Upscale<br>
+🔗 https://github.com/comfyanonymous/ComfyUI ➡️ ComfyUI<br>
+🔗 https://github.com/rgthree/rgthree-comfy ➡️ rgthree<br>
+🔗 https://github.com/ltdrdata/ComfyUI-Impact-Pack ➡️ Impact Pack<br>
+🔗 https://github.com/jags111/efficiency-nodes-comfyui ➡️ Efficiency Nodes<br>
+🔗 https://github.com/pythongosssss/ComfyUI-Custom-Scripts ➡️ Custom Scripts<br>
+🔗 https://github.com/Fannovel16/comfyui_controlnet_aux ➡️ ControlNet Auxiliary Preprocessors<br>
+🔗 https://github.com/cubiq/ComfyUI_IPAdapter_plus ➡️ IPAdapter Plus<br>
+🔗 https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg ➡️ Inspyrenet Rembg<br>
+🔗 https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch ➡️ Inpaint Crop & Stitch<br>
+🔗 https://github.com/Gourieff/ComfyUI-ReActor ➡️ ReActor<br>
+🔗 https://github.com/ltdrdata/ComfyUI-Impact-Subpack ➡️ Impact Subpack<br>
+🔗 https://github.com/ssitu/ComfyUI_UltimateSDUpscale ➡️ Ultimate SD Upscale<br>
 
 # Overview
 
@@ -296,4 +296,3 @@ Requires Custom Scripts, Impact Pack, and rgthree's nodes. This workflow allows 
 - Added specialized workflows
 - Added exploded workflows
 - Added template workflows
-
