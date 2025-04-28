@@ -1,5 +1,5 @@
 <div align="center">
-**27/04/2025:** Recent updates have made the logic of the workflow obsolete, I will need to rework the entire thing. The silver lining is that the workflow will become MUCH less complicated. If you would like to continue using V3, you will have to stay on an outdated version of Comfy, but I would always recommend updating when possible. Stay tuned for V4!
+<strong>27/04/2025:</strong> Recent updates have made the logic of the workflow obsolete, I will need to rework the entire thing. The silver lining is that the workflow will become MUCH less complicated. If you would like to continue using V3, you will have to stay on an outdated version of Comfy, but I would always recommend updating. Stay tuned for V4!
 </div>
 
 <div align="center">
