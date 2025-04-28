@@ -1,4 +1,8 @@
 <div align="center">
+**27/04/2025:** Recent updates have made the logic of the workflow obsolete, I will need to rework the entire thing. The silver lining is that the workflow will become MUCH less complicated. If you would like to continue using V3, you will have to stay on an outdated version of Comfy, but I would always recommend updating when possible. Stay tuned for V4!
+</div>
+
+<div align="center">
 
 # ![Logo](images/STTP%20V3%20-%20Logo.png)
 ### All-in-one, compact, recursive, segmented, toggle-based ComfyUI workflow by Luckytime
