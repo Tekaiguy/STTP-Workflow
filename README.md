@@ -1,280 +1,271 @@
-> [!IMPORTANT]
-> **2025/04/27** - Recent updates have made the logic of the workflow obsolete, I will need to rework the entire thing. The silver lining is that the workflow will become MUCH less complicated. If you would like to continue using V3, you will have to stay on an outdated version of Comfy, but I would always recommend updating. Stay tuned for V4!
 
 <div align="center">
 
-# ![Logo](images/STTP%20V3%20-%20Logo.png)
-### All-in-one, compact, recursive, segmented, toggle-based ComfyUI workflow by Luckytime
+# ![Logo](images/Logo.png)
+### The most straightforward all-in-one ComfyUI image workflow in the open-source space!
+###### Created by Luckytime
 </div>
 
-This workflow is capable of controlnet, image-prompt adapter, text-to-image, image-to-image, background removal, background compositing, outpainting, inpainting, face swap, face detailer, model upscale, ultimate sd upscale, vram management, and infinite looping. It is currently only capable of using checkpoint models.
+This 11-in-1 ComfyUI workflow includes text-to-image, image-to-image, background removal, compositing, cropping, outpainting, inpainting, face swap, automatic detailer, upscaling, ultimate sd upscale, VRAM management, memory slots, and infinite looping. It uses checkpoints or single/dual clip models.
 
-**Video Demo:** https://youtube.com/watch?v=BluWKOunjPI<br>
+**Video Demo:** https://youtube.com/watch?v=bBtjz0jy_gQ<br>
 **CivitAI Repo:** https://civitai.com/models/812560/straight-to-the-point<br>
 
-# Dependencies
+# The Dependencies
 
-Being an all-in-one, there are many dependencies, but I tried my absolute best to use native nodes whenever possible, and only utilized popular/trusted custom nodes for the rest.
+Being an all-in-one, there are many dependencies, but I tried my best to use native nodes whenever possible, and only utilized popular/trusted custom nodes for the rest.
 
 🔗 https://github.com/comfyanonymous/ComfyUI ➡️ ComfyUI<br>
-🔗 https://github.com/rgthree/rgthree-comfy ➡️ rgthree<br>
+🔗 https://github.com/Fannovel16/comfyui_controlnet_aux ➡️ ControlNet Preprocessors<br>
 🔗 https://github.com/ltdrdata/ComfyUI-Impact-Pack ➡️ Impact Pack<br>
-🔗 https://github.com/jags111/efficiency-nodes-comfyui ➡️ Efficiency Nodes<br>
-🔗 https://github.com/pythongosssss/ComfyUI-Custom-Scripts ➡️ Custom Scripts<br>
-🔗 https://github.com/Fannovel16/comfyui_controlnet_aux ➡️ ControlNet Auxiliary Preprocessors<br>
-🔗 https://github.com/cubiq/ComfyUI_IPAdapter_plus ➡️ IPAdapter Plus<br>
-🔗 https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg ➡️ Inspyrenet Rembg<br>
-🔗 https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch ➡️ Inpaint Crop & Stitch<br>
-🔗 https://github.com/Gourieff/ComfyUI-ReActor ➡️ ReActor<br>
 🔗 https://github.com/ltdrdata/ComfyUI-Impact-Subpack ➡️ Impact Subpack<br>
+🔗 https://github.com/lquesada/ComfyUI-Inpaint-CropAndStitch ➡️ Inpaint Crop & Stitch<br>
+🔗 https://github.com/john-mnz/ComfyUI-Inspyrenet-Rembg ➡️ Inspyrenet Rembg<br>
+🔗 https://github.com/cubiq/ComfyUI_IPAdapter_plus ➡️ IPAdapter Plus<br>
+🔗 https://github.com/Gourieff/ComfyUI-ReActor ➡️ ReActor<br>
+🔗 https://github.com/rgthree/rgthree-comfy ➡️ rgthree<br>
 🔗 https://github.com/ssitu/ComfyUI_UltimateSDUpscale ➡️ Ultimate SD Upscale<br>
 
-# Overview
+# The Overview
+
+### Flow
+
+The workflow is a pipeline of 6 distinct toggleable groups. It starts by generating an image, then refines the background, inpaints details, auto-corrects features, and finishes by upscaling. The output of the first active group is automatically sent to the next, left-to-right, and any combination of the 6 groups can be used.
 
 <div align="center">
 
-![Workflow](images/STTP%20-%20Full.png)
+![Workflow Overview](images/Full.png)
 </div>
 
-The workflow is a pipeline of 8 toggleable groups that moves from left to right. When multiple groups are active, the output of the first group is automatically sent to the next. If all 8 groups are run simultaneously, there is a high chance of depleting vram and getting an 'Allocation on device' (memory) error. Thus, successive groups can be toggled on following the completion of previous ones while the seed from each group can be reused to retain the generation at each step. This flattens the load on vram by allowing you to load models only when they are used.
+### VRAM Management
 
-The 'Group Toggle' nodes (found in the top right of a group) are global and let you switch groups off from anywhere. The workflow starts with conditioning in the 'ControlNet'  and 'IPAdapter' groups, then creates an image from an empty latent in the 'Generate' group, refines the background in the 'Background' group, reprocesses the image in the 'Redraw' group, revises details in the 'Inpaint' group, corrects faces in the 'Face Fix' group, and finally upscales and saves the image in the 'Upscale' group. Any combination of the 8 groups can be used without errors.
-
-Looping is achieved using the Impact Pack's "send" and "receive" nodes. Images can be sent to the Generate group where they will be stored for the duration of the session. Groups that can send images have a "send" toggle which will continually send images as long as the toggle is active. There is only one "receive" node in the workflow, so any image that is sent will overwrite the previous one (so make sure to disable these toggles after using them).
+If every group is ran simultaneously, there is a high chance of depleting VRAM and getting an 'Allocation on device' error. Thus, successive groups can be toggled on following the completion of previous ones while the seed from each group can be fixed to retain the generation at each step. This flattens the load on VRAM by allowing you to load models only when they are used.
 
 <div align="center">
 
-![Send Toggle](images/samples/send%20toggle.png)
+![Group Toggles](images/Groups.png)
+###### The group toggles are global and let you switch off groups from anywhere. 
 </div>
 
-# Groups
+### Memory Slots
 
-### ControlNet
+Activate memory groups 1, 2, or 3 and run the workflow to send the last output to the corresponding memory slots. The memory groups will continuously send an output with each queue, so be careful not to overwrite images in the slots.
 
 <div align="center">
 
-![ControlNet](images/STTP%20-%20ControlNet.png)
+![Send Group](images/Send.png)
 </div>
 
-This group lets you use a ControlNet model to generate a preprocessed (helper) image which is used to condition the model in the 'Generate' or 'Redraw' groups.
+### Looping
+
+Looping is achieved by activating the loop group + any other group. The loop group will override all other inputs and send its image to the next active group.
+
+### Bookmarks
+The 0-6 keys are shortcuts for useful camera views. You can adjust the bookmark nodes to suit your display by maximizing them and entering your desired zoom-level.
+
+# The Groups
+
+## Loop
+
+<div align="center">
+
+![Loop Group](images/Memory.png)
+</div>
+
+This group lets you store and reuse up to 3 saved images. You must activate this group and run the workflow so the preview nodes will display the images (this is a necessary step). To reuse an image, select the number of the image you want and run the workflow again. The loop group will override all other inputs and send its image to the next active group. Images in the loop group will be stored for the duration of the ComfyUI session, then deleted.
+
+## Generate
+
+<div align="center">
+
+![Generate Group](images/Generate.png)
+</div>
+
+This group lets you create a new image from a beige latent (text2img) or a predefined latent (img2img). If the loaded image is small, you can upscale it with a model before step 2 (this keeps the latent sharp, rather than upscaling the image linearly). 
+
+0️⃣ Load an image<br>
+1️⃣ Choose model settings<br>
+2️⃣ Choose the latent size & clip skip<br>
+3️⃣ Enter text prompts<br>
+4️⃣ Load LoRAs<br>
+5️⃣ Choose KSampler settings<br>
+6️⃣ Choose seed<br>
+7️⃣ Compare/save the image<br>
+
+### ControlNet (Stable Diffusion Only)
+
+<div align="center">
+
+![ControlNet](images/ControlNet.png)
+</div>
+
+This sub-group lets you condition the model in the 'Generate' group with a ControlNet. The preprocessor extracts information from the loaded image and creates a helper, which is used for conditioning. Toggle off the preprocessor if you want to upload your own helper.
 
 1️⃣ Load an image<br>
-2️⃣ Choose a preprocessor (can be toggled off)<br>
-3️⃣ Crop the helper image<br>
-4️⃣ Preview/save the helper<br>
+2️⃣ Choose a preprocessor & ControlNet settings<br>
+3️⃣ Preview/save the helper<br>
 
-### IPAdapter
-
-<div align="center">
-
-![IPAdapter](images/STTP%20-%20IPAdapter.png)
-</div>
-
-This group lets you choose up to 2 images to condition the model in both the 'Generate' and 'Redraw' groups. An area-mask can be defined for both images. (Somewhat counter-intuitively, it doesn't apply the mask to the node where the mask is drawn, the mask is only extracted and applied to the generated content. The 'Load Image' node where the mask is drawn is only used to generate the mask and nothing else. You can copy and paste a placeholder image into this node to see roughly where the mask will go.)
-
-0️⃣ Draw a mask (can be toggled off)<br>
-1️⃣ Load an image<br>
-2️⃣ Preprocess image (image must be square)<br>
-3️⃣ Choose IPAdapter settings (can be toggled off)<br>
-
-### Generate
+### IPAdapter (Stable Diffusion Only)
 
 <div align="center">
 
-![Generate](images/STTP%20-%20Generate.png)
+![IPAdapter](images/IPAdapter.png)
 </div>
 
-This group lets you create a new image from an empty latent (AKA text2img). The 'Refresh' toggle helps overcome a known bug with Efficiency Nodes where changing the ControlNet options does not refresh the KSampler. The ControlNet and IPAdapter toggles can block both groups even if those groups are active. While enabled, the loop toggle mutes the KSampler so the loop image becomes the default output of the group.
+This sub-group lets you modify the model in the 'Generate' group with an IPAdapter. Up to 6 images can be toggled on to create a batch, which is used to modify the output, similar to adjusting a model with a LoRA. At least 1 image must be on and the first image in the batch will set the target resolution for the rest.
 
-♾️ Preview the loop image (can be toggled off)<br>
-1️⃣ Choose ControlNet settings (can be toggled off)<br>
-2️⃣ Load a checkpoint, choose image size, and choose CLIP layer skip<br>
-3️⃣ Enter text prompts<br>
-4️⃣ Load LoRAs<br>
-5️⃣ Choose KSampler settings<br>
-6️⃣ Preview image<br>
+1️⃣ Choose IPAdapter settings and load an image<br>
+2️⃣-6️⃣ Load additional images<br>
 
-### Background
+## Background
 
 <div align="center">
 
-![Background](images/STTP%20-%20Background.png)
+![Background Group](images/Background.png)
 </div>
 
-This group lets you remove the background of your image, draw and composite a new background, or outpaint. If used alone, it uses the loaded image in step 0. The 'Refresh' toggle helps overcome a known bug caused by mute conflicts (when the KSampler is muted using the 'Remove Background' function and the group is muted and un-muted, the KSampler also becomes un-muted). When drawing a new background, the dimensions are taken from the input image, then the background and input image are composited together. The image can be padded while using any of the functions, but is mainly there to allow outpainting. Currently, only the entire image can be used as context when outpainting.
+This group lets you replace the background or modify the perimeter. Choose 'Replace' if you want to remove the background and/or composite a different one. If you choose to composite, you may upload your own background or generate a completely new one. Choose 'Reframe' if you want to crop the image and/or outpaint. Note: only the whole image can be used as context when outpainting. An inpainting model is recommended for outpainting.
 
 0️⃣ Load an image<br>
-1️⃣ Load a checkpoint, choose image size, and choose CLIP layer skip<br>
-2️⃣ Pad the image<br>
-3️⃣ Choose background removal threshold or enter text prompts<br>
-4️⃣ Load LoRAs<br>
-5️⃣ Choose KSampler settings<br>
-6️⃣ Compare images<br>
-
-### Redraw
-
-<div align="center">
-
-![Redraw](images/STTP%20-%20Redraw.png)
-</div>
-
-This group lets you create variations using an image as a starting point (AKA img2img) (AKA hiresfix). If used alone, it uses the loaded image in step 0. It takes the decoded image from 'Generate' and upscales, re-encodes, and redraws it with a second KSampler. The 'Refresh' toggle helps overcome a known bug with Efficiency Nodes where changing the ControlNet options does not refresh the KSampler. The ControlNet and IPAdapter toggles can block both groups even if those groups are active.
-
-0️⃣ Load an image<br>
-1️⃣ Choose ControlNet settings (can be toggled off)<br>
-2️⃣ Load a checkpoint, resize image, and choose CLIP layer skip<br>
-3️⃣ Enter text prompts<br>
-4️⃣ Load LoRAs<br>
-5️⃣ Choose KSampler settings<br>
-6️⃣ Compare images<br>
-
-### Inpaint
-
-<div align="center">
-
-![Inpaint](images/STTP%20-%20Inpaint.png)
-</div>
-
-This group lets you inpaint using either the full image or part of the image as context. If used alone, it uses the loaded image in step 0. You must run the graph to load the image into the mask nodes, then you can proceed to drawing your masks. As long as 'block' is set to 'if_empty_mask', execution will be stopped if no mask is detected. The context mask is only considered when using the "crop" inpainting method. An inpainting checkpoint is recommended for best results. When prompting, describe what is in the context area, not just what is in the masked area, as the model will be considering everything in the context area.
-
-0️⃣ Load an image<br>
-1️⃣ Load a checkpoint, resize image, and choose CLIP layer skip<br>
-2️⃣ Draw an inpaint mask and context mask (can be toggled off)<br>
-3️⃣ Enter text prompts<br>
-4️⃣ Load LoRAs<br>
-5️⃣ Resize cropped area and choose mask blending amount<br>
-6️⃣ Preview context area<br>
+1️⃣ Choose model settings<br>
+2️⃣ Choose the latent size & clip skip<br>
+3️⃣ Choose the removal threshold or crop settings<br>
+4️⃣ Choose the composite or outpaint settings<br>
+5️⃣ Enter text prompts<br>
+6️⃣ Load LoRAs<br>
 7️⃣ Choose KSampler settings<br>
-8️⃣ Preview inpaint and compare images<br>
+8️⃣ Choose seed<br>
+9️⃣ Compare/save the image<br>
 
-### Face Fix
-
-<div align="center">
-
-![Face Fix](images/STTP%20-%20Face%20Fix.png)
-</div>
-
-This group lets you swap or redraw faces. If used alone, it uses the loaded image in step 0. **Note: if you are getting black images, open "ComfyUI/custom_nodes/comfyui-reactor/scripts/reactor_sfw.py" in a text editor, and change 'True' to 'False'.** The face boost node can be toggled off. Face detailer can be summarized as "redrawing the face by inpainting". Similarity to the original face is maintained by using a low (0.2-0.3) denoise. Various detection/swap/segmentation models are needed for this group, which can be found by following the links in the introduction node or in the dependency repos.
-
-0️⃣ Load an image<br>
-1️⃣ Load a checkpoint, resize image, and choose CLIP layer skip<br>
-2️⃣ Load a face or enter text prompts<br>
-3️⃣ Enter original face indexes or load LoRAs<br>
-4️⃣ Enter swap face indexes or Choose seed<br>
-5️⃣ Choose face boost settings or face detailer settings<br>
-6️⃣ Compare images<br>
-
-### Upscale
+## Inpaint
 
 <div align="center">
 
-![Upscale](images/STTP%20-%20Upscale.png)
+![Inpaint Group](images/Inpaint.png)
 </div>
 
-This group lets you upscale an image with an upscale model or Ultimate SD Upscale (tiled upscaling). If used alone, it uses the loaded image in step 0. The 'Refresh' toggle helps overcome a known bug caused by mute conflicts. Ultimate SD Upscale splits the image into multiple tiles, upscales them independently, then stitches them back together (if the denoise is too high (above ~0.3) the tile seams will be too obvious). Saving can be toggled off for quality assurance.
+This group lets you perform inpainting. You can use either the full image as context, or only part of the image, which is easier on your gpu. You must run the workflow to load the image into the mask nodes, then draw your masks. The mask nodes can block the workflow if no mask is detected. The context mask defines the borders of your desired context area. Your prompt should describe what is in the context area, not just the masked area. An inpainting checkpoint is recommended for best results.
 
 0️⃣ Load an image<br>
-1️⃣ Load a checkpoint, choose image size, and choose CLIP layer skip<br>
-2️⃣ Load upscale model<br>
+1️⃣ Choose model settings<br>
+2️⃣ Choose the latent size & clip skip<br>
 3️⃣ Enter text prompts<br>
-4️⃣ Choose Ultimate SD Upscale settings<br>
-5️⃣ Compare images<br>
-6️⃣ Downscale image<br>
-7️⃣ Enter filename prefix before saving (can be toggled off)<br>
+4️⃣ Draw the inpaint/context masks<br>
+5️⃣ Load LoRAs<br>
+6️⃣ Choose the crop settings<br>
+7️⃣ Choose KSampler settings<br>
+8️⃣ Choose seed<br>
+9️⃣ Compare/save the image<br>
 
-# Bookmarks
-The 1-8 keys are shortcuts for useful camera views. You can adjust the bookmark nodes to suit your display by maximizing them and entering your desired zoom-level.
+## Autofix
 
-# Extras
+<div align="center">
+
+![Autofix Group](images/Autofix.png)
+</div>
+
+This group lets you automate detailing using various detection/segmentation/swap models. Face swapping includes face restoration, so you can disable it to just get the restoration effect. You can load up to 2 face images, which are stitched together left-to-right. Auto detailer is basically inpainting with an automatic mask. You can use a low denoise (0.2-0.3) to maintain similarity. Note: if you are getting black images when swapping, open **"ComfyUI/custom_nodes/comfyui-reactor/scripts/reactor_sfw.py"** in a text editor, and change 'True' to 'False'.
+
+0️⃣ Load an image<br>
+1️⃣ Choose model settings<br>
+2️⃣ Choose the latent size & clip skip<br>
+3️⃣ Choose face swap settings or enter text prompts<br>
+4️⃣ Load face images or load LoRAs<br>
+5️⃣ Choose auto detailer settings<br>
+6️⃣ Choose seed<br>
+7️⃣ Compare/save the image<br>
+
+## Upscale
+
+<div align="center">
+
+![Upscale Group](images/Upscale.png)
+</div>
+
+This group lets you upscale with a model or Ultimate SD Upscale (tiled upscaling). Select the upscale model for both functions in the options node. Ultimate SD Upscale splits the image into a grid of uniform tiles with some overlap, upscales them independently, then stitches them back together. If the denoise is above 0.3, the stitch seams may be too obvious. After upscaling, the image can be downscaled to reduce the file size, saving can be disabled for quality assurance, and the file prefix can be entered in the options node.
+
+0️⃣ Load an image<br>
+1️⃣ Choose model settings<br>
+2️⃣ Choose the latent size & clip skip<br>
+3️⃣ Enter text prompts<br>
+4️⃣ Load LoRAs<br>
+5️⃣ Choose Ultimate SD Upscale settings<br>
+6️⃣ Choose seed<br>
+7️⃣ Compare/save the image<br>
+8️⃣ Choose downscale settings<br>
+
+# The Extras
 
 ## Specialized Workflows
 
-These are the same groups from the main workflow, but split up into individual .json files.
+Same exact groups from the main workflow split up into individual .json files.
 
 ## Exploded Workflows
 
-These are the same as the specialized and main workflows, but all nodes are maximized, labeled, and organized for readability.
+Same as the specialized workflows, but all the nodes are maximized, spread out, and reordered.
 
 <div align="center">
 
-![Full Exploded](images/exploded/STTP%20-%20Full%20Exploded.png)
+![Generate Exploded](images/Generate_Exploded.png)
 </div>
 
 <div align="center">
 
-![ControlNet Exploded](images/exploded/STTP%20-%20ControlNet%20Exploded.png)
+![Background Exploded](images/Generate.png)
 </div>
 
 <div align="center">
 
-![IPAdapter Exploded](images/exploded/STTP%20-%20IPAdapter%20Exploded.png)
+![Inpaint Exploded](images/Generate.png)
 </div>
 
 <div align="center">
 
-![Generate Exploded](images/exploded/STTP%20-%20Generate%20Exploded.png)
+![Autofix Exploded](images/Generate.png)
 </div>
 
 <div align="center">
 
-![Background Exploded](images/exploded/STTP%20-%20Background%20Exploded.png)
-</div>
-
-<div align="center">
-
-![Redraw Exploded](images/exploded/STTP%20-%20Redraw%20Exploded.png)
-</div>
-
-<div align="center">
-
-![Inpaint Exploded](images/exploded/STTP%20-%20Inpaint%20Exploded.png)
-</div>
-
-<div align="center">
-
-![Face Fix Exploded](images/exploded/STTP%20-%20Face%20Fix%20Exploded.png)
-</div>
-
-<div align="center">
-
-![Upscale Exploded](images/exploded/STTP%20-%20Upscale%20Exploded.png)
+![Upscale Exploded](images/Generate.png)
 </div>
 
 ## Template Workflows
 
-These are basic workflows which demonstrate a unique function used in the main workflow.
+Basic workflows which demonstrate a unique function used in the main workflow.
 
 ### Loop
 
-Requires Impact Pack. This workflow sends the output image to the beginning, allowing you to re-use it as the input. Choose an existing image in the receiver to get started and toggle the boolean to choose whether to send the image or not.
+Loops the output image to the beginning, letting you to reuse it as many times as you want. Choose an existing image in the receiver to get started and toggle the muter to enable or disable the sender. Requires Impact Pack.
 
 <div align="center">
 
-![Loop Template](images/templates/STTP%20-%20Loop%20Template.png)
+![Loop Template](images/Loop.png)
 </div>
 
 ### Pause
-
-Requires rgthree's nodes. This workflow can load two different checkpoint models, but allows you to pause and unload the first model before continuing. The image from the first group is automatically sent to the second group, and if the second group is toggled off, the workflow is effectively paused at that step.
+Uses 2 KSamplers, but allows you to pause and unload the first model before continuing. The latent from the first group is automatically sent to the second group, and if the second group is toggled off, the workflow is effectively paused at that step. If the first group is toggled off, the second group gets its input from an empty latent. Requires rgthree. 
 
 <div align="center">
 
-![Pause Template](images/templates/STTP%20-%20Pause%20Template.png)
+![Pause Template](images/Pause.png)
 </div>
 
 ### Switch
 
-Requires Custom Scripts, Impact Pack, and rgthree's nodes. This workflow allows you to switch between two functions. The Switch (Any) node determines the behavior of the control bridges via a math expression which outputs 0 or 1, causing them to mute the KSampler and VAE Decode or leave them active. When muted, another image source can be passed via the Any Switch (rgthree) node. (The reason 'Switch (Any)' isn't used for both functions is because we don't want it to create an empty third index value ie. 1,2,3)
+Switches between two outputs. The 'Switch (Any)' node is controlled by the Boolean, which is converted into a '1' or '2' by the 'Power Puter'. It outputs either the decoded image or the loaded image. Requires Impact Pack, and rgthree.
 
 <div align="center">
 
-![Switch Template](images/templates/STTP%20-%20Switch%20Template.png)
+![Switch Template](images/Switch.png)
 </div>
 
-# Changelog
+# The Changelog
 
 ### Version 1
-- Added Generate, Redraw, Face Swap, and Upscale groups
+- Added Generate group
+- Added Redraw group
+- Added Face Swap group
+- Added Upscale group
 
 ### Version 2
 - Added ControlNet group
@@ -299,3 +290,25 @@ Requires Custom Scripts, Impact Pack, and rgthree's nodes. This workflow allows 
 - Added specialized workflows
 - Added exploded workflows
 - Added template workflows
+- Added video demo
+
+### Version 4
+- Removed Efficiency Nodes dependency
+- Removed Custom Scripts dependency
+- Added single/dual-clip model support
+- Replaced group nodes with subgraphs
+- Combined and converted options into Booleans
+- Combined ControlNet, IPAdapter, & Redraw groups with Generate group
+- Reworked IPAdapter into an "instant lora" instead of "area conditioning"
+- Added crop to Background group
+- Reworked outpainting to fix seams
+- Added 1 extra face to face swap
+- Added Loop group
+- Added Send group
+- Added 2 extra loop slots
+- Revamped emojis and renumbered nodes
+- Revamped help nodes
+- Updated specialized workflows
+- Updated template workflows
+- Updated exploded workflows
+- Updated video demo
