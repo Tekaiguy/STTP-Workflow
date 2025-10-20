@@ -211,22 +211,22 @@ Same as the specialized workflows, but all the nodes are maximized, spread out, 
 
 <div align="center">
 
-![Background Exploded](images/Generate.png)
+![Background Exploded](images/Background_Exploded.png)
 </div>
 
 <div align="center">
 
-![Inpaint Exploded](images/Generate.png)
+![Inpaint Exploded](images/Inpaint_Exploded.png)
 </div>
 
 <div align="center">
 
-![Autofix Exploded](images/Generate.png)
+![Autofix Exploded](images/Autofix_Exploded.png)
 </div>
 
 <div align="center">
 
-![Upscale Exploded](images/Generate.png)
+![Upscale Exploded](images/Upscale_Exploded.png)
 </div>
 
 ## Template Workflows
